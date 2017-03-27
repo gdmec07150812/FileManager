@@ -1,15 +1,15 @@
 package com.gdmec.jacky.filemanager;
 
-import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
+import android.os.Environment;
 import android.widget.ListView;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     private static final File ROOT = Environment.getExternalStorageDirectory();
 

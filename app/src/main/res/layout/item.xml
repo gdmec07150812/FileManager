@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:background="@drawable/selector_lsit_item"
+    android:orientation="horizontal"
+    android:padding="5dp">
 
     <ImageView
         android:id="@+id/imageview"
@@ -14,9 +16,9 @@
         android:id="@+id/textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginLeft="10dp"
         android:gravity="center_vertical"
-        android:layout_gravity="center"
         android:src="@drawable/folder"
         android:text="DCIM"
         android:textSize="20sp" />
