@@ -5,8 +5,103 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    android:padding="10dp"
     tools:context="com.gdmec.jacky.filemanager.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3babda">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="文件管理器"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:visibility="gone">
+
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/selector_toolbar"
+                android:src="@drawable/back" />
+
+            <Button
+                android:id="@+id/cancelButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/selector_toolbar"
+                android:text="取消"
+                android:textColor="#ffffff"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/cancelButton"
+                android:layout_toRightOf="@+id/backButton"
+                android:text="已选择 1 项"
+                android:textColor="#ffffff"
+                android:textSize="18sp" />
+        </RelativeLayout>
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/pathTop"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/frameLayout"
+        android:background="#eeeeee">
+
+        <ImageButton
+            android:id="@+id/searchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/selector_toolbar"
+            android:padding="5dp"
+            android:src="@drawable/search" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toLeftOf="@id/searchButton">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:drawableRight="@drawable/path"
+                    android:text="手机内存卡"
+                    android:textColor="@color/path_item_text_color"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </RelativeLayout>
+
     <!-- cacheColorHint 优化分割线缓存 -->
     <!-- divider 分割线颜色 -->
     <!-- dividerHeight 分割线宽度 -->
@@ -18,10 +113,160 @@
         android:id="@+id/listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/bottomLayout"
+        android:layout_below="@+id/pathTop"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
         android:cacheColorHint="@null"
         android:divider="@color/list_item_divider"
         android:dividerHeight="1dp"
         android:fadingEdge="none"
         android:listSelector="@color/transparent" />
+
+    <FrameLayout
+        android:id="@+id/bottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#3babda">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/selector_toolbar"
+                android:drawableTop="@drawable/delete"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="删除"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/selector_toolbar"
+                android:drawableTop="@drawable/copy"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="复制"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/selector_toolbar"
+                android:drawableTop="@drawable/move"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="移动"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/selector_toolbar"
+                android:drawableTop="@drawable/noselect"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="全选"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/selector_toolbar"
+                android:drawableTop="@drawable/allselect"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="全选"
+                android:textColor="#ffffff"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/selector_toolbar"
+                android:drawableTop="@drawable/more"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="更多"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/selector_toolbar"
+                android:drawableTop="@drawable/newfile"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="新建"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/selector_toolbar"
+                android:drawableTop="@drawable/refresh"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="刷新"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/selector_toolbar"
+                android:drawableTop="@drawable/sort"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="排序"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/selector_toolbar"
+                android:drawableTop="@drawable/setting"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="设置"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </FrameLayout>
 
 </RelativeLayout>

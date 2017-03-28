@@ -20,7 +20,7 @@ public class FileAdapter extends MyAdapter<File> {
         if(convertView==null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item,null);
         }
-        ImageView imageView = MyViewHolder.get(convertView,R.id.imageview);
+        ImageView imageView = MyViewHolder.get(convertView, R.id.imageView);
         TextView textview =  MyViewHolder.get(convertView,R.id.textview);
         File file = getDataList().get(position);
         if(file.isDirectory()){

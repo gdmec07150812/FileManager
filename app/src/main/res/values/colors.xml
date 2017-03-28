@@ -6,4 +6,7 @@
     <color name="list_item_divider">#ffe8e8e8</color>
     <color name="transparent">#000000</color>
     <color name="list_item_bg_pressed">#ffc2e2ed</color>
+    <color name="topbar_press">#ff7cc6f8</color>
+    <color name="tab_bg">#ff0b8dc3</color>
+    <color name="dark6">#ff666666</color>
 </resources>
