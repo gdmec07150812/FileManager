@@ -14,6 +14,7 @@
         android:background="#3babda">
 
         <TextView
+            android:id="@+id/topTextView"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
@@ -22,6 +23,7 @@
             android:textSize="20sp" />
 
         <RelativeLayout
+            android:id="@+id/topLayout"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:visibility="gone">
@@ -34,7 +36,19 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/selector_toolbar"
+                android:onClick="backOnClick"
                 android:src="@drawable/back" />
+
+            <TextView
+                android:id="@+id/topSelectedCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/cancelButton"
+                android:layout_toRightOf="@+id/backButton"
+                android:text="已选择 1 项"
+                android:textColor="#ffffff"
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/cancelButton"
@@ -44,17 +58,8 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/selector_toolbar"
+                android:onClick="backOnClick"
                 android:text="取消"
-                android:textColor="#ffffff"
-                android:textSize="18sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/cancelButton"
-                android:layout_toRightOf="@+id/backButton"
-                android:text="已选择 1 项"
                 android:textColor="#ffffff"
                 android:textSize="18sp" />
         </RelativeLayout>
@@ -125,14 +130,24 @@
         android:fadingEdge="none"
         android:listSelector="@color/transparent" />
 
+    <TextView
+        android:id="@+id/emptyView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/pathTop"
+        android:gravity="center"
+        android:text="这里什么都没有!"
+        android:textColor="#00f"
+        android:textSize="20sp" />
+
     <FrameLayout
-        android:id="@+id/bottomLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="#3babda">
 
         <LinearLayout
+            android:id="@+id/buttonLayout1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center_vertical"
@@ -176,23 +191,27 @@
                 android:textSize="12sp" />
 
             <Button
+                android:id="@+id/selectNothing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
                 android:background="@drawable/selector_toolbar"
                 android:drawableTop="@drawable/noselect"
+                android:onClick="selectNothing"
                 android:paddingBottom="5dp"
                 android:paddingTop="5dp"
-                android:text="全选"
+                android:text="全不选"
                 android:textColor="#ffffff"
                 android:textSize="12sp" />
 
             <Button
+                android:id="@+id/selectAll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
                 android:background="@drawable/selector_toolbar"
                 android:drawableTop="@drawable/allselect"
+                android:onClick="selectAll"
                 android:paddingBottom="5dp"
                 android:paddingTop="5dp"
                 android:text="全选"
@@ -214,6 +233,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/buttonLayout2"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center_vertical"
@@ -267,6 +287,7 @@
                 android:textColor="#ffffff"
                 android:textSize="12sp" />
         </LinearLayout>
+
     </FrameLayout>
 
 </RelativeLayout>

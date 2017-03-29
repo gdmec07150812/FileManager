@@ -14,10 +14,9 @@
         android:src="@drawable/folder" />
     <!-- ellipsize 文字省略...通常配合 singleLine 使用-->
     <TextView
-        android:id="@+id/textview"
+        android:id="@+id/textview1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
         android:layout_toLeftOf="@+id/checkBox"
         android:layout_toRightOf="@+id/imageView"
@@ -29,10 +28,25 @@
         android:textColor="#000000"
         android:textSize="20sp" />
 
+    <TextView
+        android:id="@+id/textview2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textview1"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@+id/checkBox"
+        android:layout_toRightOf="@+id/imageView"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:src="@drawable/folder"
+        android:text="2017-08-01 12:12:12"
+        android:textColor="#aaaaaa"
+        android:textSize="13sp" />
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="10dp"
