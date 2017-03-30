@@ -35,6 +35,7 @@ public class FileAdapter extends MyAdapter<File> {
         super.setDataList(dataList);
         map.clear();
         checkedFiles.clear();
+        activity.onCheckBoxClick();
         if (getDataList() != null) {
             for (int i = 0; i < getDataList().size(); i++) {
                 map.put(i, false);
